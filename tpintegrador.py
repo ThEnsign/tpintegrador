@@ -1,4 +1,4 @@
-# Trabajo integrador 2 - parte completa: dnis y anios de nacimiento
+# Trabajo integrador 2 - parte completa: dnis y años de nacimiento
 
 from datetime import datetime
 
@@ -13,7 +13,7 @@ dnis = {
     "E": 37027334
 }
 
-# Crear conjuntos de digitos unicos por cada dni
+# Crear conjuntos de dígitos únicos por cada dni
 conjuntos = {}
 for persona, dni in dnis.items():
     digitos = set(int(d) for d in str(dni))
@@ -35,32 +35,32 @@ simetrica_AE = A ^ E
 # Identificar conjuntos con al menos 6 elementos
 alta_diversidad = [nombre for nombre, conjunto in conjuntos.items() if len(conjunto) >= 6]
 
-# Verificar condicion de combinacion amplia
+# Verificar condición de combinación amplia
 condicion_amplia = len(A) > len(B) and any(x % 2 != 0 for x in C)
 
-# Verificar si hay un unico digito representativo
+# Verificar si hay un único dígito representativo
 representativo = len(interseccion_total) == 1
 
 # Mostrar resultados de la parte A
-print("===== Parte A: dnis y conjuntos =====")
-print("Conjuntos:")
+print("===== Parte A: DNIs y conjuntos =====")
+print("Conjuntos formados por los dígitos únicos de cada DNI:")
 for nombre, conjunto in conjuntos.items():
     print(f"{nombre} = {conjunto}")
 
-print("\nUnion total:", union_total)
-print("Interseccion total:", interseccion_total)
+print("\nUnión total:", union_total)
+print("Intersección total:", interseccion_total)
 print("Diferencia A - E:", diferencia_AE)
-print("Diferencia simetrica A △ E:", simetrica_AE)
-print("Conjuntos con alta diversidad (6 o mas digitos):", alta_diversidad)
-print("¿Condicion de combinacion amplia?:", "Si" if condicion_amplia else "No")
+print("Diferencia simétrica A △ E:", simetrica_AE)
+print("Conjuntos con alta diversidad (6 o más dígitos):", alta_diversidad)
+print("¿Condición de combinación amplia?:", "Sí" if condicion_amplia else "No")
 if representativo:
-    print("Digito representativo unico:", list(interseccion_total)[0])
+    print("Dígito representativo único:", list(interseccion_total)[0])
 else:
-    print("No hay un unico digito representativo.")
+    print("No hay un único dígito representativo.")
 
-# Parte B: operaciones con anios de nacimiento
+# Parte B: operaciones con años de nacimiento
 
-# Anios de nacimiento del grupo
+# Años de nacimiento del grupo
 nacimientos = {
     "A": 2003,
     "B": 2001,
@@ -69,7 +69,7 @@ nacimientos = {
     "E": 1998
 }
 
-# Anio actual
+# Año actual
 anio_actual = datetime.now().year
 
 # Inicializar listas y contadores
@@ -79,13 +79,13 @@ pares = 0
 impares = 0
 cartesiano = []
 
-# Recorrer cada anio de nacimiento
+# Recorrer cada año de nacimiento
 for nombre, anio in nacimientos.items():
     # Verificar grupo Z
     if anio > 2000:
         grupo_z.append(nombre)
 
-    # Verificar si el anio es bisiesto
+    # Verificar si el año es bisiesto
     if (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0):
         bisiestos.append(nombre)
 
@@ -100,9 +100,9 @@ for nombre, anio in nacimientos.items():
     cartesiano.append((anio, edad))
 
 # Mostrar resultados de la parte B
-print("\n===== Parte B: anios de nacimiento =====")
-print("Integrantes en el grupo Z:", grupo_z)
-print("Integrantes nacidos en anio bisiesto:", bisiestos)
-print("Cantidad de anios pares:", pares)
-print("Cantidad de anios impares:", impares)
-print("Producto cartesiano (anio, edad):", cartesiano)
+print("\n===== Parte B: Años de nacimiento =====")
+print("Integrantes en el Grupo Z (nacidos después del 2000):", grupo_z)
+print("Integrantes nacidos en año bisiesto:", bisiestos)
+print("Cantidad de años pares:", pares)
+print("Cantidad de años impares:", impares)
+print("Producto cartesiano (año, edad):", cartesiano)
